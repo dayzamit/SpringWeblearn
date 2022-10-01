@@ -1,13 +1,16 @@
 package com.spring.learn;
 
 import com.spring.learn.auto.wire.annotation.Emp;
+import com.spring.learn.javaconfig.JavaConfig;
 import com.spring.learn.spel.Demo;
 import com.spring.learn.standalone.collections.Person;
 import com.spring.learn.injectbyref.A;
 import com.spring.learn.lifecycle.Samosa;
-import com.spring.learn.stereotype.Student;
+
+import com.spring.learn.javaconfig.bean.annotation.Student;
 import com.spring.learn.stereotype.Teacher;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,8 +20,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App {
     public static void main(String[] args) {
         System.out.println("Hello World!");
-    loadCollectionViaSpel();
+         loadbeanviaconfig();
 
+    }
+
+    public static void loadbeanviaconfig()
+    {
+
+        AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext(JavaConfig.class);
+        Student studentobj =applicationContext.getBean("getStudent",Student.class);
+        System.out.println(studentobj);
+        studentobj.doStudy();
+        applicationContext.registerShutdownHook();
     }
 
     public static void loadBeanViaStereotype() {
@@ -104,9 +117,9 @@ public class App {
     public static void loadEmpViaIOC() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config.xml");
         Student student = (Student) applicationContext.getBean("student1");
-        System.out.println(student.getStudentName());
+     //   System.out.println(student.getStudentName());
         student = (Student) applicationContext.getBean("student2");
-        System.out.println(student.getStudentName());
+       // System.out.println(student.getStudentName());
     }
 
 }
