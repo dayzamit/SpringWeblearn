@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:p="http://www.springframework.org/schema/util"
+
+       xmlns:util="http://www.springframework.org/schema/util"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
-    http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd">
+    ">
+    <!--stand alone list-->
 
-    <!--enable for Autowired anntation-->
-    <context:annotation-config/>
+    <util:list list-class="java.util.LinkedList" id="mybestfreinds">
+        <value>Anil</value>
+        <value>Bholu</value>
+        <value>Cendrella</value>
+        <value>Denial</value>
+        <value>Elvis</value>
 
+    </util:list>
 
- <!-- first bean-->
-    <bean class="com.spring.learn.auto.wire.annotation.Address" name="address" >
-        <property name="city" value="Indore"/>
-        <property name="street" value="Gulab Bagh"/>
+    <!--standalone map-->
+
+    <util:map map-class="java.util.HashMap" id="feestructure">
+        <entry key="java" value="1000"/>
+        <entry key="Springboot" value="2000"/>
+        <entry key="Android" value="3000"/>
+        <entry key="Kotlin" value="5000"/>
+    </util:map>
+
+    <!--standalone properties file-->
+    <util:properties id="dbconfig">
+        <prop key="hb1">  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect</prop>
+        <prop key="hb2">   spring.jpa.properties.hibernate.format_sql=true</prop>
+        <prop key="hb3">  spring.jpa.properties.hibernate.show_sql=true</prop>
+        <prop key="hb4">  spring.jpa.hibernate.ddl-auto=update</prop>
+    </util:properties>
+
+    <bean class="com.spring.learn.standalone.collections.Person" name="person1">
+        <property name="frindsList" ref="mybestfreinds"/>
+        <property name="feesCourse" ref="feestructure"/>
+        <property name="dbProperties" ref="dbconfig"/>
 
     </bean>
-
-
-    <!-- No qualifying bean of type 'com.spring.learn.auto.wire.Emp' available-->
-    <bean class="com.spring.learn.auto.wire.annotation.Address" name="address1" >
-        <property name="city" value="Kanpur"/>
-        <property name="street" value="Gujaine"/>
-
-    </bean>
-
-<!--
-    <bean class="com.spring.learn.auto.wire.Emp" id="emp8" autowire="byName"  />
-
-    <bean class="com.spring.learn.auto.wire.Emp" id="emp4" autowire="byType"  />
--->
-
-
-    <bean class="com.spring.learn.auto.wire.annotation.Emp" id="emp2"/>
-
-
-    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
-
 </beans>

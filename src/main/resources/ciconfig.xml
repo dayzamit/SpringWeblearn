@@ -11,6 +11,28 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
  <!-- first bean-->
+
+
+    <bean class="com.spring.learn.ci.Certi" name="rcerti">
+        <property name="certi" value="Spring Boot Certificate"/>
+    </bean>
+
+    <bean class="com.spring.learn.ci.Person" name="personObj">
+        <constructor-arg value="101" type="int"/>
+        <constructor-arg value="Deepak" type="String"/>
+
+
+    </bean>
+
+    <bean class="com.spring.learn.ci.Person" name="personObj1">
+        <constructor-arg value="102"/>
+        <constructor-arg value="Deepaknew"/>
+        <constructor-arg ref="rcerti"/>
+
+    </bean>
+
+
+
     <bean class="com.spring.learn.injectbyref.B" name="bref">
         <property name="Y" value="101"/>
 

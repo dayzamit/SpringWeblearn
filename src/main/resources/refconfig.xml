@@ -11,19 +11,20 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
  <!-- first bean-->
-    <bean class="com.spring.learn.model.Student" id="student1">
-        <property name="studentID" value="101"/>
-        <property name="studentName" value="John"/>
-        <property name="studentAddress" value="molline"/>
+    <bean class="com.spring.learn.injectbyref.B" name="bref">
+        <property name="Y" value="101"/>
+
+    </bean>
+
+    <bean class="com.spring.learn.injectbyref.A" name="aref">
+        <property name="X" value="102"/>
+        <property name="ob">
+            <ref bean="bref"/>
+                </property>
+
     </bean>
 
 
-    <!--  bean-->
-    <bean class="com.spring.learn.model.Student" id="student2" >
-        <property name="studentID" value="101"/>
-        <property name="studentName" value="Johnnew"/>
-        <property name="studentAddress" value="mollineindore"/>
-    </bean>
 
 
 </beans>

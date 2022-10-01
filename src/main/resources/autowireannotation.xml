@@ -10,18 +10,22 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--enable for Autowired anntation-->
+    <context:annotation-config/>
+
 
  <!-- first bean-->
-    <bean class="com.spring.learn.auto.wire.Address" name="address" >
+    <bean class="com.spring.learn.auto.wire.annotation.Address" name="address" >
         <property name="city" value="Indore"/>
         <property name="street" value="Gulab Bagh"/>
 
     </bean>
 
 
-    <bean class="com.spring.learn.auto.wire.Address" name="address1" >
+    <!-- No qualifying bean of type 'com.spring.learn.auto.wire.Emp' available-->
+    <bean class="com.spring.learn.auto.wire.annotation.Address" name="address1" >
         <property name="city" value="Kanpur"/>
-        <property name="street" value="Gulab Bagh"/>
+        <property name="street" value="Gujaine"/>
 
     </bean>
 
@@ -32,7 +36,7 @@
 -->
 
 
-    <bean class="com.spring.learn.auto.wire.Emp" id="emp2" autowire="constructor"/>
+    <bean class="com.spring.learn.auto.wire.annotation.Emp" id="emp2"/>
 
 
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>

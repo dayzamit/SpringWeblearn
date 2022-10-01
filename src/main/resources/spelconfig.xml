@@ -11,16 +11,6 @@
     http://www.springframework.org/schema/context/spring-context.xsd  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-    <context:component-scan base-package="com.spring.learn.stereotype"/>
-    <util:list list-class="java.util.LinkedList" id="addressList">
-        <value>Indore</value>
-        <value>Mumbai</value>
-        <value>Pune</value>
-        <value>Jaipur</value>
-        <value>Dehli</value>
-    </util:list>
+    <context:component-scan base-package="com.spring.learn.spel"/>
 
-    <bean class="com.spring.learn.stereotype.Teacher" name="teacherObj" scope="prototype">
-        <property name="teacherName" value="Ghanshyam"/>
-    </bean>
 </beans>

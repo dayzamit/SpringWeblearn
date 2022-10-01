@@ -10,9 +10,9 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-   <bean>
+   <bean name="emp1" class="com.spring.learn.collections.Emp">
        <property name="name" value="RadheyShyam"/>
-       <property name="phone">
+       <property name="phones">
            <list>
                <value>9898989898</value>
                <value>98989898931</value>
@@ -28,7 +28,7 @@
 
        <property name="courses">
            <map>
-             <entry key="java" value="3month"/>
+              <entry key="java" value="3month"/>
                <entry key="android" value="3month"/>
                <entry key="Spring" value="3month"/>
                <entry key="Springboot" value="2month"/>

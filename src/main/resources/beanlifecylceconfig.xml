@@ -10,20 +10,16 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+
  <!-- first bean-->
-    <bean class="com.spring.learn.model.Student" id="student1">
-        <property name="studentID" value="101"/>
-        <property name="studentName" value="John"/>
-        <property name="studentAddress" value="molline"/>
+    <bean class="com.spring.learn.lifecycle.Samosa" id="sobj" >
+        <property name="price" value="20"/>
     </bean>
 
-
-    <!--  bean-->
-    <bean class="com.spring.learn.model.Student" id="student2" >
-        <property name="studentID" value="101"/>
-        <property name="studentName" value="Johnnew"/>
-        <property name="studentAddress" value="mollineindore"/>
+    <!--<bean class="com.spring.learn.lifecycle.Samosa" id="sobj2" init-method="initlizeObject" destroy-method="destoryObject">
+        <property name="price" value="20"/>
     </bean>
-
+-->
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
 
 </beans>
