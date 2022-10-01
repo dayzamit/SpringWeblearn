@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="com.spring.learn.model.Student" id="student1">
+        <property name="studentID">
+            <value>101</value>
+        </property>
+
+        <property name="studentName">
+            <value>Jai bhand</value>
+        </property>
+
+        <property name="studentAddress">
+            <value>California city</value>
+        </property>
+    </bean>
+
+
+</beans>
